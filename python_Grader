@@ -1,0 +1,53 @@
+while True:
+    print()
+    Totalpoints = int(input("How many points is the assignment out of: "))
+    Tograde = int(input("How many papers do you need to grade on this assignment: "))
+    Run = True
+    if Tograde >= 20:
+        Break = True
+    else:
+        Break = False
+    while Run:
+        if Tograde == 0:
+            Run = False
+        elif Tograde >= 1:
+            Run = True
+        Pointsgot = int(input("How many points did this kid get: "))
+        GradeNum = int(round((Pointsgot / Totalpoints)*100, 2))
+        if GradeNum <= 50:
+            GradeLet = "F"
+        elif GradeNum <= 60:
+            GradeLet = "D"
+        elif GradeNum <= 75:
+            GradeLet = "C"
+        elif GradeNum <= 88:
+            GradeLet = "B"
+        elif GradeNum <= 100:
+            GradeLet = "A"
+        elif GradeNum > 100:
+            GradeLet = "They got a perfect score or extra credit cause their score is too high. So they got an A+"
+        print("Below are the calculated scores based on the provided information")
+        print(str(GradeNum) + "% - " + (GradeLet))
+        
+        if GradeLet == "They got a perfect score or extra credit cause their score is too high. So they got an A+":
+            print("A+")
+        else:
+            print(GradeLet)
+
+        Tograde = (Tograde - 1)
+
+        if Tograde >= 1:
+            print(str(Tograde) + " More assignments to grade, you got this")
+            print()
+        if Tograde == 0:
+            print()
+            if Break == True:
+                print("Okay nice all assignments are graded, now you deserve a break")
+                print("-------------------------------------------------------------")
+            elif Break != True:
+                print("Okay nice all assignments are graded")
+                print("------------------------------------")
+            Run = False
+        elif Tograde >= 1:
+            Run = True
+        
